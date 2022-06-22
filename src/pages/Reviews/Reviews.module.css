@@ -1,0 +1,12 @@
+.ul {
+  padding: 10px;
+}
+.li:not(:last-child) {
+  margin-bottom: 15px;
+}
+.p {
+  margin-bottom: 5px;
+}
+.warning {
+  padding: 10px;
+}
