@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/866.81bc727b.chunk.css","mappings":"AAAA,mBACE,YACF,CACA,oCACE,kBACF,CACA,kBACE,iBACF,CACA,wBACE,YACF","sources":["pages/Reviews/Reviews.module.css"],"sourcesContent":[".ul {\n  padding: 10px;\n}\n.li:not(:last-child) {\n  margin-bottom: 15px;\n}\n.p {\n  margin-bottom: 5px;\n}\n.warning {\n  padding: 10px;\n}\n"],"names":[],"sourceRoot":""}
