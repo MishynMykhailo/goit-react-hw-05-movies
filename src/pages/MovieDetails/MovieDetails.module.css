@@ -42,3 +42,28 @@
   composes: navLink;
   color: #2367f3;
 }
+.btnGoBack {
+  padding: 10px;
+  display: inline-block;
+}
+.btnGoBackLink {
+  text-decoration: none;
+
+  color: white;
+  padding: 5px;
+  text-align: center;
+  align-items: center;
+  width: 100px;
+  height: 25px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #2367f3;
+  border: none;
+  border-radius: 5px;
+}
+
+.btnGoBackLink:hover,
+.btnGoBackLink:focus {
+  background-color: #043cad;
+}

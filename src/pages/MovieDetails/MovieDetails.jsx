@@ -1,13 +1,13 @@
 // import PageHeading from 'components/PageHeading/PageHeading';
 import { useEffect, useState } from 'react';
-import { NavLink, useParams, Route, Routes } from 'react-router-dom';
+import { NavLink, useParams, useLocation, Outlet } from 'react-router-dom';
 import s from '../MovieDetails/MovieDetails.module.css';
 import * as movieApi from '../../service/FetchApi/FetchApi';
-import Reviews from 'pages/Reviews/Reviews';
-import Cast from 'pages/Cast/Cast';
+
 import poster from '../../images/noposter.jpg';
 
 export default function MovieDetails() {
+  const location = useLocation();
   const [movieCard, setMovieCard] = useState();
   const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
   const { id } = useParams();
@@ -15,19 +15,24 @@ export default function MovieDetails() {
   useEffect(() => {
     movieApi.fetchApiPrimaryInfo(id).then(setMovieCard);
   }, [id]);
-  if (movieCard) {
-  }
+  const pathBack = location?.state?.from ?? '/';
+
   return (
     <>
       {movieCard && (
         <>
+          <div className={s.btnGoBack}>
+            <NavLink to={pathBack} className={s.btnGoBackLink}>
+              {'<- Go Back'}
+            </NavLink>
+          </div>
           <div className={s.divCard}>
             <div className={s.divImg}>
               <img
                 className={s.img}
                 src={
-                  movieCard.poster_path
-                    ? `${BASE_IMAGE_URL}${movieCard.poster_path}`
+                  movieCard.data.poster_path
+                    ? `${BASE_IMAGE_URL}${movieCard.data.poster_path}`
                     : poster
                 }
                 alt={movieCard.title}
@@ -54,6 +59,7 @@ export default function MovieDetails() {
                   className={({ isActive }) =>
                     isActive ? s.activeNavLink : s.navLink
                   }
+                  state={{ from: pathBack }}
                 >
                   Cast
                 </NavLink>
@@ -64,16 +70,14 @@ export default function MovieDetails() {
                   className={({ isActive }) =>
                     isActive ? s.activeNavLink : s.navLink
                   }
+                  state={{ from: pathBack }}
                 >
                   Reviews
                 </NavLink>
               </li>
             </ul>
           </div>
-          <Routes>
-            <Route path="cast" element={<Cast movieId={id} />} />
-            <Route path="reviews" element={<Reviews movieId={id} />} />
-          </Routes>
+          <Outlet />
         </>
       )}
     </>

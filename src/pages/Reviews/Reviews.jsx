@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import * as movieApi from '../../service/FetchApi/FetchApi';
 import s from '../Reviews/Reviews.module.css';
-export default function Reviews({ movieId }) {
+export default function Reviews() {
   const [reviews, setReviews] = useState(null);
+  const { id } = useParams();
   useEffect(() => {
-    movieApi.fetchApiReviews(movieId).then(setReviews);
-  }, [movieId]);
+    movieApi.fetchApiReviews(id).then(setReviews);
+  }, [id]);
 
   if (reviews) {
     if (reviews.data.results && reviews.data.results.length > 0) {

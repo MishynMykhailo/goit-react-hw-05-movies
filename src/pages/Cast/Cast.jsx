@@ -1,13 +1,16 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import * as movieApi from '../../service/FetchApi/FetchApi';
 import s from '../Cast/Cast.module.css';
-export default function Cast({ movieId }) {
+export default function Cast() {
   const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
   const [credits, setCredits] = useState();
+  const { id } = useParams();
+
   useEffect(() => {
-    movieApi.fetchApiCredits(movieId).then(setCredits);
-  }, [movieId]);
+    movieApi.fetchApiCredits(id).then(setCredits);
+  }, [id]);
 
   return (
     <>
@@ -34,6 +37,7 @@ export default function Cast({ movieId }) {
                   </li>
                 );
               }
+              return console.error('Not Found');
             })}
           </ul>
         </>
