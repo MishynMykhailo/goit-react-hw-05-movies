@@ -1,21 +1,24 @@
-import AppBar from 'components/AppBar.jsx/AppBar';
-import Container from 'components/Container/Container';
-import Home from 'pages/Home/Home';
 import { Routes, Route } from 'react-router-dom';
-import Movies from 'pages/Movie/Movie';
-import MovieDetails from 'pages/MovieDetails/MovieDetails';
-import Cast from 'pages/Cast/Cast';
-import Reviews from 'pages/Reviews/Reviews';
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import Loader from 'pages/Loader/Loader';
+import Container from 'components/Container';
+import AppBar from 'components/AppBar.jsx';
+const Home = lazy(() => import('../../pages/Home/Home'));
+const Movies = lazy(() => import('../../pages/Movies/Movies'));
+const MovieDetails = lazy(() =>
+  import('../../pages/MovieDetails/MovieDetails')
+);
+const Cast = lazy(() => import('../../pages/Cast/Cast'));
+const Reviews = lazy(() => import('../../pages/Reviews/Reviews'));
+
 export const App = () => {
   return (
     <>
-      <Container>
-        <AppBar />
-      </Container>
-      <Container>
-        <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}>
+        <Container>
+          <AppBar />
+        </Container>
+        <Container>
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/movies" element={<Movies />} />
@@ -25,8 +28,8 @@ export const App = () => {
             </Route>
             <Route path="*" element={<h1>not Found :C</h1>} />
           </Routes>
-        </Suspense>
-      </Container>
+        </Container>
+      </Suspense>
     </>
   );
 };

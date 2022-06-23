@@ -2,7 +2,7 @@ import PageHeading from 'components/PageHeading/PageHeading';
 import { useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import * as movieApi from '../../service/FetchApi/FetchApi';
-import s from '../Movie/Movie.module.css';
+import s from '../Movies/Movies.module.css';
 import poster from '../../images/noposter.jpg';
 import { useEffect } from 'react';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
