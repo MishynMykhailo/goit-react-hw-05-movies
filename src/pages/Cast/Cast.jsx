@@ -37,7 +37,6 @@ export default function Cast() {
                   </li>
                 );
               }
-              return console.error('Not Found');
             })}
           </ul>
         </>
