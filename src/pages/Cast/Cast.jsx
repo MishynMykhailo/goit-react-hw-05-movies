@@ -19,8 +19,8 @@ export default function Cast() {
           <hr />
           <ul className={s.ul}>
             {credits.data.cast.map(credit => {
-              if (credit.profile_path) {
-                return (
+              return (
+                credit.profile_path && (
                   <li key={credit.credit_id} className={s.li}>
                     <div className={s.cardCast}>
                       <img
@@ -35,8 +35,8 @@ export default function Cast() {
                       </p>
                     </div>
                   </li>
-                );
-              }
+                )
+              );
             })}
           </ul>
         </>
