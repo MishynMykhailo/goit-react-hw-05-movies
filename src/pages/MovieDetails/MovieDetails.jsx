@@ -15,6 +15,7 @@ export default function MovieDetails() {
   useEffect(() => {
     movieApi.fetchApiPrimaryInfo(id).then(setMovieCard);
   }, [id]);
+
   const pathBack = location?.state?.from ?? '/';
 
   return (

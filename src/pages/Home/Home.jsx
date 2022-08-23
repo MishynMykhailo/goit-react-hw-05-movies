@@ -11,6 +11,7 @@ export default function Home() {
   useEffect(() => {
     movieApi.fetchApiTrends().then(setTrendMovies);
   }, []);
+
   return (
     <>
       <PageHeading text={'Trending today'} />

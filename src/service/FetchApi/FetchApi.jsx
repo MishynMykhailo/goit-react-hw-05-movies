@@ -45,6 +45,7 @@ export async function fetchApiPrimaryInfo(movieId) {
     params: {
       api_key: 'f5f018a555195129a19f56d8b4d0a827',
       language: 'en-US',
+      append_to_response: 'videos',
     },
   });
   try {
