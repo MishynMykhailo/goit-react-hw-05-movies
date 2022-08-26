@@ -45,7 +45,9 @@ export default function MovieDetails() {
               <div className={s.divInfo}>
                 <h2 className={s.title}>{movieCard.data.original_title}</h2>
                 <h4 className={s.h4}>Rating</h4>
-                <p className={s.p}>{movieCard.data.vote_average}/10</p>
+                <p className={s.p}>
+                  {movieCard.data.vote_average.toFixed(1)}/10
+                </p>
                 <h4 className={s.h4}>Overview</h4>
                 <p className={s.p}>{movieCard.data.overview}</p>
                 <h4 className={s.h4}>Genres</h4>

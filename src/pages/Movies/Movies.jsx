@@ -85,7 +85,13 @@ export default function Movies() {
                     }
                     alt={movie.title}
                   />
-                  <p>{movie.original_title}</p>
+                  <p
+                    style={{
+                      padding: '10px',
+                    }}
+                  >
+                    {movie.original_title}
+                  </p>
                 </Link>
               </li>
             ))}
