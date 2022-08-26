@@ -25,7 +25,6 @@ export default function Movies() {
 
   const paramsSearch = searchParams.get('query');
 
-  console.log(searchParams);
   useEffect(() => {
     if (paramsSearch) {
       movieApi.fetchApiSearch(paramsSearch.trim()).then(setMovies);

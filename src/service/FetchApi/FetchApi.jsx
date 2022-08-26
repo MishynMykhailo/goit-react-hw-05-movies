@@ -90,3 +90,21 @@ export async function fetchApiReviews(movieId) {
     console.error(error);
   }
 }
+//FETCH TRAILER
+
+export async function getMovieTrailer(id) {
+  const instance = axios.create({
+    baseURL: `https://api.themoviedb.org/3/movie/${id}/videos`,
+    url: '',
+    params: {
+      api_key: 'f5f018a555195129a19f56d8b4d0a827',
+      language: 'en-US',
+    },
+  });
+  try {
+    const response = await instance.get();
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+}
