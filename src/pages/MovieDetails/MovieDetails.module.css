@@ -3,18 +3,13 @@
   padding: 10px;
   gap: 10px;
 }
-.divImg {
-}
-.divInfo {
-}
+
 .img {
   border: 1px solid black;
   width: 250px;
 }
 .title {
   margin-bottom: 10px;
-}
-.info {
 }
 .p {
   margin-bottom: 10px;

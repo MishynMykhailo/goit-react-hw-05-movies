@@ -55,19 +55,17 @@ export default function MovieDetails() {
                   {movieCard.data.genres.map(genre => genre.name).join(', ')}
                 </p>
               </div>
-              <div className={s.Iframe}>
-                {trailerVideo?.data.results?.[0]?.key ? (
-                  <ul>
-                    {
-                      <TrailerList
-                        trailerKey={trailerVideo?.data.results?.[0]?.key}
-                      />
-                    }
-                  </ul>
-                ) : (
-                  ''
-                )}
-              </div>
+              {trailerVideo?.data.results && (
+                <div>
+                  {trailerVideo?.data.results?.[0]?.key ? (
+                    <TrailerList
+                      trailerKey={trailerVideo?.data.results?.[0]?.key}
+                    />
+                  ) : (
+                    ''
+                  )}
+                </div>
+              )}
             </div>
           </div>
           <div className={s.divAddition}>
