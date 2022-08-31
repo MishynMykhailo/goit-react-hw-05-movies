@@ -5,6 +5,13 @@
   text-align: center;
   padding: 10px;
 }
+
+@media screen and (max-width: 767px) {
+  .ul {
+    grid-template-columns: auto;
+  }
+}
+
 .ul:nth-child(n) {
   margin-bottom: 10px;
 }
